@@ -2,7 +2,7 @@
 #include <string.h>
 
 int permutacao_circular(char * base, char * perm_base, int tentativa){
-	char temp[201], temp_;
+	char temp[strlen(base)], temp_;
 	int i;
 	temp_ = base[0];
 	tentativa++;
@@ -13,10 +13,11 @@ int permutacao_circular(char * base, char * perm_base, int tentativa){
 			temp[i-1] = base[i];
 		}
 		temp[strlen(base)-1] = temp_;
+		memset(&temp[strlen(base)], '\0', sizeof(char)*strlen(temp));
 		if(strcmp(base, perm_base) == 0){
 			return 0;
 		}
-		//printf("tentativa: %d -- Len base: %d -- base: %s - perm_base: %s - temp: %s\n", tentativa, (int)strlen(base)-1, base, perm_base, temp);
+		// printf("tentativa: %d -- Len base: %d -- base: %s - perm_base: %s - temp: %s\n", tentativa, (int)strlen(base)-1, base, perm_base, temp);
 		if(strcmp(temp, perm_base) == 0){ 
 			return tentativa;
 		}else{
