@@ -33,8 +33,8 @@ int main(){
     scanf("%d", &n);
     getchar();
     while(n--){
-        gets(base);
-        gets(perm_base);
+        scanf("%s", base);
+        scanf("%s", perm_base);
         printf("Teste %d\n", ++count);
         result = permutacao_circular(base, perm_base, 0);
         if(result == -1){
